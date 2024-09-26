@@ -13,8 +13,10 @@ const multerConfig = require('../Middlewares/multerMiddleware');
 
 router.post('/user/register',userController.register) 
 router.post('/user/login',userController.login) 
-// router.get('/user/getUserDetails',userController.getUserDetails) 
 router.post('/project/addProject',jwtMiddleware,multerConfig.single('projectImage'),projectController.addProject) 
+router.get('/project/homeproject',projectController.getHomeProject) 
+router.get('/project/allproject',jwtMiddleware,projectController.getAllProject) 
+router.get('/project/userproject',jwtMiddleware,projectController.getUserProject) 
 
 // Export Router 
 module.exports=router
