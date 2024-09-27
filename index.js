@@ -21,7 +21,8 @@ pfServer.use(express.json())
 // pfServer.use(appMiddleware)
 
 pfServer.use(router)
-
+//pfserver should expose the 
+pfServer.use('/uploads',express.static('./uploads'))
 //7) provide Port
 const PORT = 4000;
 // 8) Run the server 
