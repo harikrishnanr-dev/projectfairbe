@@ -99,3 +99,14 @@ exports.editUserProject = async (req, res) => {
 		res.send(401).json(error)
 	}
 }
+//delete project
+exports.deleteUserProject = async (req, res) => {
+	const { id } = req.params;
+	try {
+		const removedProject = await projects.findByIdAndDelete({ _id: id });
+		res.status(200).json(removedProject)
+			}
+	catch (err) {
+		res.status(500).json(err)
+	}
+}
